@@ -22,6 +22,11 @@ Conexão com o banco de dados MongoDB
 $ yarn add mongoose
 ``` 
 
+Tokens de autenticação da API 
+```
+$ yarn add jsonwebtoken 
+``` 
+
 # Ferramentas 
 
 Realizando testes de requisições: 
