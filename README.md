@@ -39,4 +39,7 @@ Realizando testes de requisições:
 
 # Referências 
 
-[API NodeJS + Express + Mongo] Estrutura e cadastro | Diego Fernandes, https://www.youtube.com/watch?v=BN_8bCfVp88&list=PL85ITvJ7FLoiXVwHXeOsOuVppGbBzo2dp 
+1.API NodeJS + Express + Mongo, Estrutura e cadastro | Diego Fernandes, https://www.youtube.com/watch?v=BN_8bCfVp88&list=PL85ITvJ7FLoiXVwHXeOsOuVppGbBzo2dp 
+1. Pacote MQTT para NodeJS, https://www.npmjs.com/package/mqtt
+1. Pacote com suporte a async e await, https://github.com/mqttjs/async-mqtt
+1. Documentação introdutório para o MQTT em NodeJS, http://www.steves-internet-guide.com/using-node-mqtt-client/
