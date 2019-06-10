@@ -27,11 +27,15 @@ Tokens de autenticação da API
 $ yarn add jsonwebtoken 
 ``` 
 
+Comunicação com o _broker_ MQTT
+```
+yarn add async-mqtt
+```
+
 # Ferramentas 
 
 Realizando testes de requisições: 
 * Insomnia, https://support.insomnia.rest/ 
-* 
 
 # Referências 
 
