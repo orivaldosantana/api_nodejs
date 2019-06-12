@@ -4,3 +4,5 @@ npm-debug.log
 .env
 .DS_Store
 yarn.lock
+src/config/mqtt_server.json 
+src/config/auth.json 

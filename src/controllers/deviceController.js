@@ -2,6 +2,7 @@ const express = require('express');
 const MQTT = require("async-mqtt");
 
 const authMiddleware = require('../middlewares/auth');
+const mqttConfig = require('../config/mqtt_server.json');
 
 const Device = require('../models/device'); 
 
@@ -50,11 +51,11 @@ router.post('/:deviceId/:value', (req, res) => {
         return res.send({result: 'Mensage send'})
         // 157.230.89.7
         */
-        const client = MQTT.connect("tcp://192.168.0.59:1883",
+        const client = MQTT.connect( mqttConfig.server,
             {
-                clientId:"oriva01",
-                username:"teste",
-                password:"teste",
+                clientId: req.body.username,
+                username: mqttConfig.mqtt_user,
+                password: mqttConfig.mqtt_password,
             }
         );
 

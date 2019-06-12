@@ -7,6 +7,16 @@ const DeviceSchema = new mongoose.Schema({
         require: true,
         unique: true, 
     },
+    topicToWrite: {
+        type: String,
+        require: true,
+        unique: true, 
+    },
+    topicToRead: {
+        type: String,
+        require: true,
+        unique: true, 
+    },
     description: {
         type: String,
         require: false,
