@@ -39,8 +39,18 @@ router.post('/', async (req, res) => {
 });
 
 
-router.post('/:deviceId/:value', (req, res) => {
+router.post('/:deviceId/', async  (req, res) => {
+    let topicPublish; 
     try {
+        const device = await Device.findById(req.params.deviceId);
+        topicPublish = device.topicToWrite;  
+    } catch (err) {
+        return res.status(400).send({error: 'Error loading device'}); 
+    }
+
+ 
+    try {
+        
         /*
         // Escrevendo em um tópico mqtt 
         const client  = mqtt.connect([{ host: 'mqtt://192.168.0.59', port: 1883, username: 'teste', password: 'teste' } ])
@@ -51,25 +61,20 @@ router.post('/:deviceId/:value', (req, res) => {
         return res.send({result: 'Mensage send'})
         // 157.230.89.7
         */
-        const client = MQTT.connect( mqttConfig.server,
+        const client = MQTT.connect(mqttConfig.mqtt_server,
             {
-                clientId: req.body.username,
-                username: mqttConfig.mqtt_user,
+                clientId: req.body.user,
+                username: mqttConfig.mqtt_login,
                 password: mqttConfig.mqtt_password,
             }
         );
-
         // When passing async functions as event listeners, make sure to have a try catch block
-
         const doStuff = async () => {
-
-            console.log("Starting");
             try {
-                await client.publish("esp/rele1", req.params.value);
+                await client.publish(topicPublish, req.body.value); 
                 // This line doesn't run until the server responds to the publish
                 await client.end();
                 // This line doesn't run until the client has disconnected without error
-                console.log("Done");
             } catch (e){
                 // Do something about it!
                 console.log(e.stack);
@@ -91,6 +96,8 @@ router.put('/:deviceId', async (req, res) => {
             // This assumes all the fields of the object is present in the body.
             device.name = req.body.name;
             device.description = req.body.description; 
+            device.topicPublish = req.body.topicPublish; 
+            device.topicToWrite = req.body.topicToWrite; 
         
             device.save((saveErr, updatedDevice) => {
                 res.send({ device: updatedDevice });
