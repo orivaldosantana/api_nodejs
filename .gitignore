@@ -6,3 +6,5 @@ npm-debug.log
 yarn.lock
 src/config/mqtt_server.json 
 src/config/auth.json 
+src/config/mqtt_server.orivaldo.ml.json
+src/config/mqtt_server.rasp.json
