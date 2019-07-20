@@ -53,7 +53,7 @@ router.post('/:deviceId/', async  (req, res) => {
         return res.status(400).send({error: 'Error loading device'}); 
     } 
 
-    //console.log("Valor "+topicPublish+" "+ value + " "+mqttConfig.mqtt_login+" "+mqttConfig.mqtt_password); 
+    console.log("Valor "+topicPublish+" "+ value + " "+mqttConfig.mqtt_login+" "+mqttConfig.mqtt_password); 
     try {
         
 
