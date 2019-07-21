@@ -109,7 +109,7 @@ router.put('/:deviceId', async (req, res) => {
 router.delete('/:deviceId', async (req, res) => {
     try {
         await Device.findByIdAndRemove(req.params.deviceId); 
-        return res.send()
+        return res.send({ result: "ok" })
     } catch (err) {
         return res.status(400).send({error: 'Error deleting device'}); 
     }

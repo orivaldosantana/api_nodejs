@@ -12,12 +12,15 @@ const UserSchema = new mongoose.Schema({
         type: String, 
         unique: true, 
         required: false, 
-        lowercase: true,
     },
     password: {
         type: String,
         required: true, 
         select: false, 
+    },
+    role: {
+        type: String,
+        default: "DEFAULT",
     },
     createdAt: {
         type: Date, 

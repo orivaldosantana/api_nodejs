@@ -37,12 +37,49 @@ router.get('/devices', async (req, res) => {
      
 });
 
+
+router.get('/full', async (req, res) => {
+    console.log("full"); 
+    try {
+        const results = await Authorization.find().populate('device').populate('user');
+
+
+        let authorizations = [];
+        // selecionado os atributos da resposta 
+        for (let i = 0; i < results.length; i++){
+            authorizations[i] = { 
+                id: results[i]._id, 
+                enabled: results[i].enabled,
+                device_id: results[i].device._id,
+                device_name: results[i].device.name,
+                user_id: results[i].user._id,
+                user_name: results[i].user.userName
+            }; 
+                
+        }
+       console.log( authorizations ); 
+        return res.send({ authorizations }); 
+    } catch (err) {
+        return res.status(400).send({error: 'Error loading authorizations'}); 
+    }
+     
+});
+
 router.post('/', async (req, res) => {
     try {
         const authorization = await Authorization.create(req.body); 
         return res.send({authorization})
     } catch (err) {
         return res.status(400).send({error: 'Error creating new authorization'}); 
+    }
+});
+
+router.delete('/:authorizationId', async (req, res) => {
+    try {
+        await Authorization.findByIdAndRemove(req.params.authorizationId); 
+        return res.send({ result: "ok" })
+    } catch (err) {
+        return res.status(400).send({error: 'Error deleting device'}); 
     }
 });
 

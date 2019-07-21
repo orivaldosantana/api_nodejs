@@ -43,3 +43,4 @@ Realizando testes de requisições:
 1. Pacote MQTT para NodeJS, https://www.npmjs.com/package/mqtt
 1. Pacote com suporte a async e await, https://github.com/mqttjs/async-mqtt
 1. Documentação introdutório para o MQTT em NodeJS, http://www.steves-internet-guide.com/using-node-mqtt-client/
+1. Express.js Fundamentals - 6 - Middleware Explained, https://www.youtube.com/watch?v=9HOem0amlyg
