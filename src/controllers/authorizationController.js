@@ -39,7 +39,7 @@ router.get('/devices', async (req, res) => {
 
 
 router.get('/full', async (req, res) => {
- 
+return res.send({result: "ok" });
     try {
         const results = await Authorization.find().populate('device').populate('user');
 
