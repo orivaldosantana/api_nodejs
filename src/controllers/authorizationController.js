@@ -39,7 +39,7 @@ router.get('/devices', async (req, res) => {
 
 
 router.get('/full', async (req, res) => {
-    console.log("full"); 
+ 
     try {
         const results = await Authorization.find().populate('device').populate('user');
 
@@ -57,7 +57,7 @@ router.get('/full', async (req, res) => {
             }; 
                 
         }
-       console.log( authorizations ); 
+        
         return res.send({ authorizations }); 
     } catch (err) {
         return res.status(400).send({error: 'Error loading authorizations'}); 
