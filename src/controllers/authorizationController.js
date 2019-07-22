@@ -43,7 +43,6 @@ router.get('/full', async (req, res) => {
     try {
         const results = await Authorization.find().populate('device').populate('user');
 
-	console.log(results); 
         let authorizations = [];
         // selecionado os atributos da resposta 
         for (let i = 0; i < results.length; i++){
