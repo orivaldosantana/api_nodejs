@@ -39,11 +39,11 @@ router.get('/devices', async (req, res) => {
 
 
 router.get('/full', async (req, res) => {
-return res.send({result: "ok" });
+
     try {
         const results = await Authorization.find().populate('device').populate('user');
 
-
+	console.log(results); 
         let authorizations = [];
         // selecionado os atributos da resposta 
         for (let i = 0; i < results.length; i++){
@@ -53,7 +53,7 @@ return res.send({result: "ok" });
                 device_id: results[i].device._id,
                 device_name: results[i].device.name,
                 user_id: results[i].user._id,
-                user_name: results[i].user.userName
+                user_name: results[i].user.userName 
             }; 
                 
         }
