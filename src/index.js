@@ -3,7 +3,13 @@ const bodyParser = require('body-parser');
 
 const app = express(); 
 
+const server = require('http').Server(app); 
+const io = require('socket.io')(server); 
 
+app.use((req, res, next) => {
+    req.io = io; 
+    next(); 
+})
 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({extended: false})); 
@@ -16,4 +22,4 @@ require('./controllers/authController')(app);
 require('./controllers/deviceController')(app); 
 require('./controllers/authorizationController')(app); 
 
-app.listen(3002);
+server.listen(3002);
