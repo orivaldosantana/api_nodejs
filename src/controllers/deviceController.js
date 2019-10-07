@@ -69,6 +69,7 @@ router.post('/:deviceId/', async  (req, res) => {
             try {
                 await client.publish(topicPublish, value); 
                 // This line doesn't run until the server responds to the publish
+                req.io.emit('command_status',value); // used by socket io to update commando button on frontend 
                 await client.end();
                 // This line doesn't run until the client has disconnected without error
             } catch (e){

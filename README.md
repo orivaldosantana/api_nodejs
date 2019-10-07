@@ -1,8 +1,22 @@
 # API REST com NodeJS
 
-Para começar o projeto digite 
+## Exeção em modo de desenvolvimento 
+
+Comando para executar o projeto no seu diretório raiz  
+```bash
+$ node src/index.js  
+```
+Comando para executar e detectar automaticamente modificações nos arquivos 
+```bash
+$ nodemon src/index.js  
+```
+
+
+## Projeto Novo
+
+Para criar um projeto novo 
 ```bash 
-$ npm init -y 
+$ yarn init -y 
 ```
 
 ## Instalação de pacotes 
@@ -31,6 +45,11 @@ Comunicação com o _broker_ MQTT
 ```
 yarn add async-mqtt
 ```
+
+Comunicação em tempo real entre _backend_ e _frontend_
+```
+yarn add socket.io
+``` 
 
 # Ferramentas 
 
