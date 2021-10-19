@@ -1,6 +1,6 @@
 # API REST com NodeJS
 
-## Exeção em modo de desenvolvimento 
+## Execução em modo de desenvolvimento 
 
 Comando para executar o projeto no seu diretório raiz  
 ```bash
